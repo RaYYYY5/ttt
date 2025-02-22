@@ -19,9 +19,8 @@ namespace TicTacToetest1
         public Form1()
         {
             InitializeComponent();
-            greetingLabel.Text = $"Welcome to the game, {playerName}!";
             NewGame();
-            
+
         }
 
 
@@ -75,7 +74,7 @@ namespace TicTacToetest1
             {
                 GameTimer.Stop();
                 playerWinCount++;
-                Console.WriteLine("YOU WIN!!!");
+                winnerAnnounceLabel.Text = $"{playerName} Wins!!!";
                 label1.Text = $"{playerName} Wins: " + playerWinCount;
                 NewGame();
 
@@ -92,14 +91,14 @@ namespace TicTacToetest1
             {
                 GameTimer.Stop();
                 computerWinCount++;
-                Console.WriteLine("Computer win :(");
+                winnerAnnounceLabel.Text = "Computer Win :(";
                 label2.Text = "Computer Wins: " + computerWinCount;
                 NewGame();
             }
             else if (buttons.Count == 0)
             {
                 GameTimer.Stop();
-                Console.WriteLine("It's tie game");
+                winnerAnnounceLabel.Text = "It's a tie";
                 tieCount++;
                 label3.Text = "Tie: " + tieCount;
                 NewGame();
@@ -137,6 +136,10 @@ namespace TicTacToetest1
             label1.Text = $"{playerName} Wins:  ";
         }
 
+        private void button11_Click(object sender, EventArgs e)
+        {
+            Application.Exit(); // Closes the form
+        }
     }
 }
 
